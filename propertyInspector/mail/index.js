@@ -41,7 +41,7 @@ const $propEvent = {
     }
 };
 
-// 注销按钮事件
+// Нажатие на кнопку отправки данных
 loginBtn.addEventListener('click', (e) => {
    // Предотвратить перезагрузку страницы
     e.preventDefault();
