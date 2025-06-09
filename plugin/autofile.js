@@ -5,26 +5,26 @@ console.log('Начало сборки...');
 
 const currentDir = __dirname;
 
-// 获取父文件夹的路径
+// Путь к родительскому каталогу
 const parentDir = path.join(currentDir, '..');
-// 获取父文件夹的名称
+// Название родительского каталога
 const PluginName = path.basename(parentDir);
 
 
 const PluginPath = path.join(process.env.APPDATA, 'HotSpot/StreamDock/plugins', PluginName);
 
 try {
-    // 删除旧的插件目录
+    // Удалить старый каталог плагина, если он существует
     fs.removeSync(PluginPath);
 
-    // 确保目标目录存在
+    // Убедится, что папка для плагина существует
     fs.ensureDirSync(path.dirname(PluginPath));
 
-    // 复制当前目录到目标路径，排除 node_modules
+    // Скопировать текущий каталог в папку с плагинами без node_modules
     fs.copySync(path.resolve(__dirname, '..'), PluginPath, {
         filter: (src) => {
             const relativePath = path.relative(path.resolve(__dirname, '..'), src);
-            // 排除 'node_modules' 和 '.git' 目录及其子文件
+            // Исключите "node_modules" и".каталог git и его вложенные файлы
             return !relativePath.startsWith('plugin\\node_modules') 
                  &&!relativePath.startsWith('plugin\\index.js')
                  &&!relativePath.startsWith('plugin\\package.json')
