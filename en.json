@@ -1,0 +1,28 @@
+{
+  "Name": "Checker",
+  "Description": "mailcheker",
+  "Category": "Checker",
+  "ru.vitarts.mailchecker": {
+    "Name": "",
+    "Tooltip": ""
+  },
+  "Localization": {
+   "Settings": "Settings",
+    "Host": "Host",
+    "Port": "Port",
+    "Login": "Login",
+    "Save": "Save",
+    "Url": "Url",
+    "Email": "Email",
+    "Password": "Password",
+    "Loading...": "Loading...",
+    "Error": "Error",
+    "Successfully": "Successfully",
+    "Sending": "Sending...",
+    "TLS": "TLS",
+    "imap.yandex.ru": "imap.google.com",
+    "https://mail.yandex.ru": "https://mail.gmail.com",
+    "993": "993",
+    "login@yandex.ru": "login@google.com"
+  }
+}

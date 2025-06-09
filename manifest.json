@@ -1,0 +1,52 @@
+{
+  "Actions": [
+    {
+      "Icon": "static/mail.png",
+      "Name": "Email",
+      "DisableAutomaticStates": true,
+      "States": [
+        {
+          "Image": "static/mail.png",
+          "TitleAlignment": "center",
+          "FontSize": "8"
+        }
+      ],
+      "Settings": {
+        "isLogin": false
+      },
+      "Controllers": [],
+      "UserTitleEnabled": true,
+      "SupportedInMultiActions": true,
+      "Tooltip": "Email check",
+      "UUID": "ru.vitarts.mailchecker",
+      "PropertyInspectorPath": "propertyInspector/mail/index.html"
+    }
+  ],
+  "SDKVersion": 1,
+  "Author": "VitArts",
+  "Name": "Email",
+  "Icon": "static/logo.png",
+  "CodePathWin": "plugin/index.js",
+  "CodePathMac": "plugin/index.js",
+  "Description": "Email check",
+  "Category": "checker",
+  "CategoryIcon": "static/logo.png",
+  "Version": "0.0.1",
+  "URL": "https://vitarts.ru",
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "7"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "3.10.188.226"
+  },
+  "Nodejs": {
+    "Version": "20"
+  }
+}

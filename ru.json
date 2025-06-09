@@ -1,0 +1,28 @@
+{
+  "Name": "Проверка",
+  "Description": "Проверка почты",
+  "Category": "Проверка",
+  "ru.vitarts.mailchecker": {
+    "Name": "",
+    "Tooltip": ""
+  },
+  "Localization": {
+    "Settings": "Настройки",
+    "Host": "Хост",
+    "Port": "Порт",
+    "Login": "Авторизация",
+    "Save": "Сохранить",
+    "Email": "Эл. почта",
+    "Url": "Ссылка",
+    "Password": "Пароль",
+    "Loading...": "Loading...",
+    "Error": "Ошибка авторизации",
+    "Successfully": "Вход успешно выполнен",
+    "Sending": "Отправка данных...",
+    "TLS": "TLS",
+    "imap.yandex.ru": "imap.yandex.ru",
+    "https://mail.yandex.ru": "https://mail.yandex.ru",
+    "993": "993",
+    "login@yandex.ru": "login@yandex.ru"
+  }
+}
