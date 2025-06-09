@@ -66,7 +66,7 @@ async function startMailCheck(context, settings) {
   // Функция обработки ошибки соединения:
   function onError() {
     const svgErr = createSvg('ERR');                         
-    plugin.setImage(context, `data:image/svg+xml;charset=utf8,${svgErr}`);
+    plugin.setImage(context, svgErr);
     settings.isLogin = false;                                 
     plugin.setSettings(context, settings);                    
   }

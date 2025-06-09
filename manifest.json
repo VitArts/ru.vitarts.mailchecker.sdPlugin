@@ -30,8 +30,8 @@
   "CodePathMac": "plugin/index.js",
   "Description": "Email check",
   "Category": "checker",
-  "CategoryIcon": "static/logo.png",
-  "Version": "0.0.1",
+  "CategoryIcon": "static/logo.svg",
+  "Version": "0.0.2",
   "URL": "https://vitarts.ru",
   "OS": [
     {
