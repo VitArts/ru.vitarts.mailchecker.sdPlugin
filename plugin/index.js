@@ -4,7 +4,6 @@ const imaps = require('imap-simple');
 const plugin = new Plugins('mailchecker');
 const pluginTg = new Plugins('telegramchecker');
 const createSvg = require('./func/createSvg')
-const openInBrowser = require('./func/openInBrowser')
 
 // Хранилище состояния по контекстам
 const watchers = {};
@@ -204,6 +203,21 @@ function openTelegram() {
     exec(`xdg-open "${urlScheme}"`);
   }
 };
+
+/**
+ * Открывает URL в браузере в зависимости от ОС.
+ * process.platform может быть 'win32', 'darwin' или другое (Linux).
+ */
+function openInBrowser(url) {
+  log.info(`Opening URL: ${url}`);
+  try {
+    if (process.platform === 'win32') exec(`start "" "${url}"`);
+    else if (process.platform === 'darwin') exec(`open "${url}"`);
+    else exec(`xdg-open "${url}"`);
+  } catch (err) {
+    log.error('Cannot open URL:', err);
+  }
+}
 
 // Регистрируем действия плагина:
 // • _willAppear — когда плагин появляется на экране
