@@ -258,7 +258,6 @@ pluginTg.telegramchecker = new Actions({
   },
 
   async didReceiveSettings({ context, payload }) {
-    console.log('1')
   }
 });
 
