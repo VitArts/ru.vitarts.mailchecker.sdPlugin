@@ -1,6 +1,6 @@
 {
   "Name": "Проверка",
-  "Description": "Проверка почты",
+  "Description": "email, telegram",
   "Category": "Проверка",
   "ru.vitarts.mailchecker": {
     "Name": "",

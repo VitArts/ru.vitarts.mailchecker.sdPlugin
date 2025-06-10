@@ -1,8 +1,10 @@
 const { Plugins, Actions, log } = require('./utils/plugin');
-const { execSync } = require('child_process');
+const { exec } = require('child_process');
 const imaps = require('imap-simple');
 const plugin = new Plugins('mailchecker');
+const pluginTg = new Plugins('telegramchecker');
 const createSvg = require('./func/createSvg')
+const openInBrowser = require('./func/openInBrowser')
 
 // Хранилище состояния по контекстам
 const watchers = {};
@@ -187,20 +189,21 @@ function stopMailCheck(context) {
   }
 }
 
-/**
- * Открывает URL в браузере в зависимости от ОС.
- * process.platform может быть 'win32', 'darwin' или другое (Linux).
- */
-function openInBrowser(url) {
-  log.info(`Opening URL: ${url}`);
-  try {
-    if (process.platform === 'win32') execSync(`start "" "${url}"`);
-    else if (process.platform === 'darwin') execSync(`open "${url}"`);
-    else execSync(`xdg-open "${url}"`);
-  } catch (err) {
-    log.error('Cannot open URL:', err);
+// Открываем телеграм: выполняем команду запуска Telegram
+function openTelegram() {
+  const urlScheme = 'tg://';  // пустой схема-URL – запустит приложение
+  const platform = process.platform;
+
+  if (platform === 'darwin') {
+    exec(`open "${urlScheme}"`);
+  } else if (platform === 'win32') {
+    // На Windows он найдёт схему в реестре
+    exec(`start "" "${urlScheme}"`);
+  } else {
+    // Linux: попробует xdg-open
+    exec(`xdg-open "${urlScheme}"`);
   }
-}
+};
 
 // Регистрируем действия плагина:
 // • _willAppear — когда плагин появляется на экране
@@ -223,6 +226,25 @@ plugin.mailchecker = new Actions({
   async didReceiveSettings({ context, payload }) {
     // при обновлении настроек — перезапускаем проверку
     startMailCheck(context, payload.settings || {});
+  }
+});
+
+
+pluginTg.telegramchecker = new Actions({
+  async _willAppear({ context, payload }) {
+   
+  },
+
+  _willDisappear({ context }) {
+                     
+  },
+
+  keyDown({ payload }) {
+       openTelegram()     
+  },
+
+  async didReceiveSettings({ context, payload }) {
+   
   }
 });
 
